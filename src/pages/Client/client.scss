@@ -1,0 +1,27 @@
+@import "../../sass/colors";
+
+.client {
+  width: 100%;
+  padding-bottom: 85px;
+
+  &__container {
+    margin-top: 25px;
+
+    &__subtitle {
+      color: $purple;
+      font-size: 13px;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__form {
+      width: 90%;
+      margin: auto;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  }
+}

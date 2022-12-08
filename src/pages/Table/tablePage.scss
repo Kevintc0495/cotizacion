@@ -1,0 +1,46 @@
+@import "../../sass/colors";
+
+.table {
+  width: 100%;
+  padding-bottom: 85px;
+
+  &__container {
+    margin-top: 25px;
+    transition-duration: all 0s;
+
+    &__subtitle {
+      color: $purple;
+      font-size: 13px;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__btn {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      margin-top: 15px;
+      justify-content: flex-end;
+    }
+
+    &__form {
+      width: 90%;
+      margin: auto;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    &__table {
+      width: 95%;
+      margin: auto;
+      margin-top: 20px;
+
+      &__head {
+        background-color: $purple;
+      }
+    }
+  }
+}
