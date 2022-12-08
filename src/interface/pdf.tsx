@@ -40,4 +40,5 @@ export interface TableMaterialProps {
 export interface InformationProps {
   name: string;
   ruc: string;
+  note: string;
 }

@@ -20,6 +20,7 @@ const initialValue = {
     service_description: "",
     date: "",
     file_name: "",
+    note: "",
   },
   handleInputChanges: () => {},
   saveHomeFormData: () => {},
@@ -41,6 +42,7 @@ const HomeProvider: FC<PropsWithChildren> = ({ children }) => {
     service_description: "",
     date: "",
     file_name: "",
+    note: "",
   });
   const [isSaveStorage, setIsSaveStorage] = useState(false);
 

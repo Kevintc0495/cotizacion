@@ -260,7 +260,11 @@ const MyDocument: FC<MyDocumentProps> = ({
             totalPriceTableMaterial={totalPriceTableMaterial}
           />
         )}
-        <Information name={homeFormData.name} ruc={homeFormData.ruc} />
+        <Information
+          name={homeFormData.name}
+          ruc={homeFormData.ruc}
+          note={homeFormData.note}
+        />
       </Page>
     </Document>
   );
@@ -496,10 +500,10 @@ const TableMaterial = ({
   );
 };
 
-const Information = ({ name, ruc }: InformationProps) => {
+const Information = ({ name, ruc, note }: InformationProps) => {
   return (
     <View style={styles.information}>
-      <Text>Nota: Los materiales son adquiridos por el cliente.</Text>
+      <Text>{note}</Text>
       <Text style={styles.information__note}>
         Una vez culminado el trabajo se procedera a emitir el recibo por
         honorarios correspondientes al servicio realizado.

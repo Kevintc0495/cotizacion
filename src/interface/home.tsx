@@ -9,6 +9,7 @@ export interface HomeFormData {
   service_description: string;
   date: string;
   file_name: string;
+  note: string;
 }
 
 export interface ContextData {

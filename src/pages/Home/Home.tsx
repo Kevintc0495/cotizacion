@@ -130,6 +130,31 @@ const Home = () => {
             value={homeFormData.file_name}
           />
         </article>
+        <article className="home__container">
+          <div className="home__container__subtitle">
+            <h3>NOTA</h3>
+            <IconButton
+              color="primary"
+              aria-label="upload picture"
+              component="label"
+              onClick={saveHomeFormData}
+            >
+              <SaveAltIcon color="primary" sx={{ fontSize: 25 }} />
+            </IconButton>
+          </div>
+          <div className="home__container__form">
+            <TextField
+              id="outlined-multiline-static"
+              label="Descripcion de la nota"
+              name="note"
+              multiline
+              fullWidth
+              rows={4}
+              onChange={handleInputChanges}
+              value={homeFormData.note}
+            />
+          </div>
+        </article>
       </section>
     </Layout>
   );
