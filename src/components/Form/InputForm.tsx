@@ -30,6 +30,7 @@ const InputForm = ({
         onChange={onChange}
         value={value}
         type={type || "text"}
+        aria-label={name}
       />
     </div>
   );

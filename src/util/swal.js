@@ -16,6 +16,5 @@ export const MessageUtil = (
     confirmButtonColor: "#0063ad",
     showConfirmButton: showConfirmButton,
     timer: timer || undefined,
-    // footer: ''
   });
 };

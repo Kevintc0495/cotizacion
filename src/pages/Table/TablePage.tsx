@@ -20,7 +20,7 @@ import ActionModal from "../../components/ActionModal";
 import Modal from "../../components/Modal/Modal";
 import InputForm from "../../components/Form/InputForm";
 import TableContext from "../../context/TableContext";
-import { RowTables, TableMaterial, TableService } from "../../interface/table";
+import { RowTables } from "../../interface/table";
 import SaveIcon from "@mui/icons-material/Save";
 
 const TablePage = () => {
@@ -69,7 +69,7 @@ const TablePage = () => {
   };
 
   const handleOpenModalChildByRowListTable = (
-    row: TableService | TableMaterial,
+    row: RowTables,
     index: number,
     type: string
   ) => {
@@ -96,7 +96,7 @@ const TablePage = () => {
             <div className="table__container__subtitle__box">
               <IconButton
                 color="primary"
-                aria-label="upload picture"
+                aria-label="btn-view-table-service"
                 component="button"
                 style={{ paddingRight: 12 }}
                 onClick={() => handleOpenModal("service")}
@@ -105,13 +105,14 @@ const TablePage = () => {
               </IconButton>
               <IconButton
                 color="primary"
-                aria-label="upload picture"
+                aria-label="btn-save-table-service"
                 component="button"
                 onClick={saveListService}
               >
                 <SaveIcon color="primary" sx={{ fontSize: 25 }} />
               </IconButton>
               <Switch
+                aria-label="switch-view-table-service-in-pdf"
                 onChange={handleInputChanges}
                 name="switchEnableTableService"
                 checked={tableFormData.switchEnableTableService}
@@ -127,9 +128,9 @@ const TablePage = () => {
             type="tel"
           />
           <div className="table__container__form">
-            <label htmlFor="outlined-multiline-static">Descripcion</label>
+            <label htmlFor="description_service">Descripcion</label>
             <TextField
-              id="outlined-multiline-static"
+              id="description_service"
               name="description_service"
               multiline
               fullWidth={true}
@@ -149,6 +150,7 @@ const TablePage = () => {
         </article>
         <article className="table__container__btn">
           <Button
+            aria-label="add-data-table-service"
             variant="contained"
             size="small"
             startIcon={<AddIcon />}
@@ -163,7 +165,7 @@ const TablePage = () => {
             <div className="table__container__subtitle__box">
               <IconButton
                 color="primary"
-                aria-label="upload picture"
+                aria-label="btn-view-table-material"
                 component="button"
                 style={{ paddingRight: 12 }}
                 onClick={() => handleOpenModal("material")}
@@ -172,13 +174,14 @@ const TablePage = () => {
               </IconButton>
               <IconButton
                 color="primary"
-                aria-label="upload picture"
+                aria-label="btn-save-table-material"
                 component="button"
                 onClick={saveListMaterial}
               >
                 <SaveIcon color="primary" sx={{ fontSize: 25 }} />
               </IconButton>
               <Switch
+                aria-label="switch-view-table-material-in-pdf"
                 onChange={handleInputChanges}
                 name="switchEnableTableMaterial"
                 checked={tableFormData.switchEnableTableMaterial}
@@ -194,9 +197,9 @@ const TablePage = () => {
             type="tel"
           />
           <div className="table__container__form">
-            <label htmlFor="outlined-multiline-static">Descripcion</label>
+            <label htmlFor="description_material">Descripcion</label>
             <TextField
-              id="outlined-multiline-static"
+              id="description_material"
               name="description_material"
               multiline
               fullWidth={true}
@@ -240,11 +243,14 @@ const TablePage = () => {
           reference={divContainRef}
         >
           {toggleViewTable ? (
-            <article className="table__container">
+            <article
+              className="table__container"
+              aria-label="article-table-service"
+            >
               <TableContainer component={Paper}>
                 <Table
                   sx={{ minWidth: 600 }}
-                  aria-label="simple table"
+                  aria-label="table-service"
                   size="small"
                 >
                   <TableHead className="table__container__table__head">
@@ -273,10 +279,24 @@ const TablePage = () => {
                         onClick={() =>
                           handleOpenModalChildByRowListTable(row, i, "service")
                         }
+                        data-testid="row-table-service"
                       >
-                        <TableCell align="center">{row.quantity}</TableCell>
-                        <TableCell align="left">{row.description}</TableCell>
-                        <TableCell align="center">
+                        <TableCell
+                          align="center"
+                          data-testid="quantity-service"
+                        >
+                          {row.quantity}
+                        </TableCell>
+                        <TableCell
+                          align="left"
+                          data-testid="description-service"
+                        >
+                          {row.description}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          data-testid="unit-price-service"
+                        >
                           {row.unitPrice.toFixed(2)}
                         </TableCell>
                         <TableCell align="center">
@@ -289,11 +309,14 @@ const TablePage = () => {
               </TableContainer>
             </article>
           ) : (
-            <article className="table__container">
+            <article
+              className="table__container"
+              aria-label="article-table-material"
+            >
               <TableContainer component={Paper}>
                 <Table
                   sx={{ minWidth: 600 }}
-                  aria-label="simple table"
+                  aria-label="table-material"
                   size="small"
                 >
                   <TableHead className="table__container__table__head">
@@ -309,6 +332,9 @@ const TablePage = () => {
                       </TableCell>
                       <TableCell align="center" style={{ color: "white" }}>
                         Precio
+                      </TableCell>
+                      <TableCell align="center" style={{ color: "white" }}>
+                        Total
                       </TableCell>
                     </TableRow>
                   </TableHead>
@@ -326,8 +352,11 @@ const TablePage = () => {
                         <TableCell align="center">{row.quantity}</TableCell>
                         <TableCell align="left">{row.description}</TableCell>
                         <TableCell align="center">{row.unit}</TableCell>
-                        <TableCell align="left">
+                        <TableCell align="center">
                           {row.unitPrice.toFixed(2)}
+                        </TableCell>
+                        <TableCell align="center">
+                          {(row.quantity * row.unitPrice).toFixed(2)}
                         </TableCell>
                       </TableRow>
                     ))}
@@ -340,6 +369,7 @@ const TablePage = () => {
         <ActionModal
           open={openModalChild}
           handleClose={handleCloseModalChild}
+          handleCloseModalParent={handleCloseModal}
           rowListTable={rowListTable}
           indexListTable={indexListTable}
           typeTable={typeTable}

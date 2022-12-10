@@ -21,11 +21,13 @@ const Modal = ({
       <div
         className={`modal__layer ${open ? "modal--view " : ""}`}
         onClick={handleClose}
+        data-testid="modal-layer"
       ></div>
       <div
         className={`modal__contain ${open ? "modal--view " : ""}`}
         ref={reference}
         style={{ top: `calc(50% - ${heightContain / 2}px` }}
+        data-testid="modal-contain"
       >
         {children}
       </div>

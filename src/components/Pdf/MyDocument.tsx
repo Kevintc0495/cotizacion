@@ -131,6 +131,11 @@ const styles = StyleSheet.create({
     width: "68%",
     paddingVertical: 2,
   },
+  tableMaterial__header__description: {
+    borderRight: "1px solid black",
+    width: "57%",
+    paddingVertical: 2,
+  },
   tableService__header__unitPrice: {
     borderRight: "1px solid black",
     width: "11%",
@@ -155,6 +160,13 @@ const styles = StyleSheet.create({
   tableService__body__description: {
     borderRight: "1px solid black",
     width: "68%",
+    paddingVertical: 2,
+    textAlign: "left",
+    paddingLeft: 2,
+  },
+  tableMaterial__body__description: {
+    borderRight: "1px solid black",
+    width: "57%",
     paddingVertical: 2,
     textAlign: "left",
     paddingLeft: 2,
@@ -206,9 +218,6 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 20,
     fontSize: 11,
-  },
-  information__note: {
-    marginTop: 4,
   },
   information__farewall: {
     marginTop: 30,
@@ -461,25 +470,29 @@ const TableMaterial = ({
     <View style={styles.table} wrap={false}>
       <View style={styles.tableService__header}>
         <Text style={styles.tableService__header__quantity}>CANT.</Text>
-        <Text style={styles.tableService__header__description}>
+        <Text style={styles.tableMaterial__header__description}>
           DESCRIPCION
         </Text>
         <Text style={styles.tableService__header__unitPrice}>UNIDAD</Text>
-        <Text style={styles.tableService__header__total}>PRECIO</Text>
+        <Text style={styles.tableService__header__unitPrice}>PRECIO</Text>
+        <Text style={styles.tableService__header__total}>TOTAL</Text>
       </View>
       {listMaterial.map((item, i) => (
         <View key={i} style={styles.tableService__body}>
           <View style={styles.tableService__body__quantity}>
             <Text>{item.quantity}</Text>
           </View>
-          <View style={styles.tableService__body__description}>
+          <View style={styles.tableMaterial__body__description}>
             <Text>{item.description}</Text>
           </View>
           <View style={styles.tableService__body__unitPrice}>
             <Text>{item.unit}</Text>
           </View>
-          <View style={styles.tableService__body__total}>
+          <View style={styles.tableService__body__unitPrice}>
             <Text>{"S/ " + item.unitPrice.toFixed(2)}</Text>
+          </View>
+          <View style={styles.tableService__body__total}>
+            <Text>{"S/ " + (item.quantity * item.unitPrice).toFixed(2)}</Text>
           </View>
         </View>
       ))}
@@ -504,10 +517,6 @@ const Information = ({ name, ruc, note }: InformationProps) => {
   return (
     <View style={styles.information}>
       <Text>{note}</Text>
-      <Text style={styles.information__note}>
-        Una vez culminado el trabajo se procedera a emitir el recibo por
-        honorarios correspondientes al servicio realizado.
-      </Text>
       <Text style={styles.information__farewall}>Atentamente;</Text>
       <View style={styles.information__box}>
         <Text>{name ? name : "Jorge Ernesto Torres Medrano"}</Text>

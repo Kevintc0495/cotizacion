@@ -82,7 +82,7 @@ const Home = () => {
             <h3>DESCRIPCIÒN DEL SERVICIO</h3>
             <IconButton
               color="primary"
-              aria-label="upload picture"
+              aria-label="save-form"
               component="label"
               onClick={saveHomeFormData}
             >
@@ -107,7 +107,7 @@ const Home = () => {
             <h3>DOCUMENTO</h3>
             <IconButton
               color="primary"
-              aria-label="upload picture"
+              aria-label="save-form"
               component="button"
               onClick={saveHomeFormData}
             >
@@ -135,7 +135,7 @@ const Home = () => {
             <h3>NOTA</h3>
             <IconButton
               color="primary"
-              aria-label="upload picture"
+              aria-label="save-form"
               component="label"
               onClick={saveHomeFormData}
             >

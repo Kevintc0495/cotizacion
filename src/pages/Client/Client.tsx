@@ -17,7 +17,7 @@ const Client = () => {
           <h3>CLIENTE</h3>
           <IconButton
             color="primary"
-            aria-label="upload picture"
+            aria-label="save-form"
             component="button"
             onClick={saveClientFormData}
           >

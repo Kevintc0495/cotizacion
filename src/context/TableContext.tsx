@@ -134,7 +134,7 @@ export const TableProvider: FC<React.PropsWithChildren> = ({ children }) => {
     const getListService = window.localStorage.getItem("listService");
     const getListMaterial = window.localStorage.getItem("listMaterial");
     if (getListService) setListService(JSON.parse(getListService));
-    if (getListMaterial) setListService(JSON.parse(getListMaterial));
+    if (getListMaterial) setListMaterial(JSON.parse(getListMaterial));
     if (getListService || getListMaterial) setIsSaveStorage(true);
   }, []);
 

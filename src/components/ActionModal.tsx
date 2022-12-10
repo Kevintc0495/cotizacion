@@ -10,6 +10,7 @@ import { RowTables } from "../interface/table";
 interface actionModal {
   open: boolean;
   handleClose: () => void;
+  handleCloseModalParent: () => void;
   rowListTable: RowTables;
   indexListTable: number;
   typeTable: string;
@@ -18,6 +19,7 @@ interface actionModal {
 function ActionModal({
   open,
   handleClose,
+  handleCloseModalParent,
   rowListTable,
   indexListTable,
   typeTable,
@@ -41,6 +43,7 @@ function ActionModal({
         break;
     }
     handleClose();
+    handleCloseModalParent();
   };
 
   const deleteRow = () => {
