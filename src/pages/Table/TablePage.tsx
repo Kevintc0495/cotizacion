@@ -35,7 +35,7 @@ const TablePage = () => {
     saveListMaterial,
   } = useContext(TableContext);
   const [openModal, setOpenModal] = useState(false);
-  const [openModalChild, setOpenModalChild] = useState(false);
+  const [openModalChild, setOpenModalChild] = useState("");
   const [toggleViewTable, setToggleViewTable] = useState(true);
   const [heightTable, setHeightTable] = useState(0);
   const divContainRef = useRef<HTMLDivElement>(null);
@@ -76,11 +76,11 @@ const TablePage = () => {
     setRowList(row);
     setIndexListTable(index);
     setTypeTable(type);
-    setOpenModalChild(true);
+    setOpenModalChild("modal__child--view");
   };
 
   const handleCloseModalChild = () => {
-    setOpenModalChild(false);
+    setOpenModalChild("");
   };
 
   useEffect(() => {
@@ -226,6 +226,7 @@ const TablePage = () => {
         </article>
         <article className="table__container__btn">
           <Button
+            aria-label="add-data-table-material"
             variant="contained"
             size="small"
             startIcon={<AddIcon />}
@@ -279,7 +280,7 @@ const TablePage = () => {
                         onClick={() =>
                           handleOpenModalChildByRowListTable(row, i, "service")
                         }
-                        data-testid="row-table-service"
+                        data-testid={`row-table-service-${i}`}
                       >
                         <TableCell
                           align="center"
@@ -348,11 +349,27 @@ const TablePage = () => {
                         onClick={() =>
                           handleOpenModalChildByRowListTable(row, i, "material")
                         }
+                        data-testid={`row-table-material-${i}`}
                       >
-                        <TableCell align="center">{row.quantity}</TableCell>
-                        <TableCell align="left">{row.description}</TableCell>
-                        <TableCell align="center">{row.unit}</TableCell>
-                        <TableCell align="center">
+                        <TableCell
+                          align="center"
+                          data-testid="quantity-material"
+                        >
+                          {row.quantity}
+                        </TableCell>
+                        <TableCell
+                          align="left"
+                          data-testid="description-material"
+                        >
+                          {row.description}
+                        </TableCell>
+                        <TableCell align="center" data-testid="unit-material">
+                          {row.unit}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          data-testid="unit-price-material"
+                        >
                           {row.unitPrice.toFixed(2)}
                         </TableCell>
                         <TableCell align="center">

@@ -1,14 +1,14 @@
 import { Fragment, useContext } from "react";
-import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton, Button, Box } from "@mui/material";
 import TableContext from "../context/TableContext";
 import { RowTables } from "../interface/table";
+import "./actionModal.scss";
 
 interface actionModal {
-  open: boolean;
+  open: string;
   handleClose: () => void;
   handleCloseModalParent: () => void;
   rowListTable: RowTables;
@@ -59,78 +59,68 @@ function ActionModal({
   };
 
   return (
-    <Fragment>
-      <Modal
-        hideBackdrop
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
+    <>
+      <div
+        className={`modal__child__layer ${open}`}
+        onClick={handleClose}
+        data-testid="modal-child-layer"
+      ></div>
+      <div
+        className={`modal__child__contain ${open}`}
+        data-testid="modal-child-contain"
       >
         <Box
           sx={{
-            position: "absolute" as "absolute",
-            width: 280,
-            bgcolor: "background.paper",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            boxShadow: 24,
-            pb: 3,
-            borderRadius: 2,
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            display: "flex",
           }}
         >
-          <Box
-            sx={{
-              flexDirection: "row",
-              justifyContent: "flex-end",
-              display: "flex",
-            }}
-          >
-            <IconButton onClick={handleClose}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <Box
-            sx={{
-              width: "100%",
-              marginTop: 1,
-              paddingX: 2,
-              textAlign: "center",
-            }}
-          >
-            <h3>¿Que accion deseas realizar?</h3>
-          </Box>
-          <Box
-            sx={{
-              width: "100%",
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              display: "flex",
-              marginTop: 3,
-            }}
-          >
-            <Button
-              variant="contained"
-              size="small"
-              startIcon={<EditIcon />}
-              onClick={editRow}
-            >
-              Editar
-            </Button>
-            <Button
-              variant="contained"
-              size="small"
-              startIcon={<DeleteIcon />}
-              color="error"
-              onClick={deleteRow}
-            >
-              Eliminar
-            </Button>
-          </Box>
+          <IconButton onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
         </Box>
-      </Modal>
-    </Fragment>
+        <Box
+          sx={{
+            width: "100%",
+            marginTop: 1,
+            paddingX: 2,
+            textAlign: "center",
+          }}
+        >
+          <h3>¿Que accion deseas realizar?</h3>
+        </Box>
+        <Box
+          sx={{
+            width: "100%",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            display: "flex",
+            marginTop: 3,
+          }}
+        >
+          <Button
+            variant="contained"
+            size="small"
+            startIcon={<EditIcon />}
+            onClick={editRow}
+            aria-label="btn-edit"
+          >
+            Editar
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            startIcon={<DeleteIcon />}
+            color="error"
+            onClick={deleteRow}
+            aria-label="btn-delete"
+          >
+            Eliminar
+          </Button>
+        </Box>
+      </div>
+    </>
   );
 }
 

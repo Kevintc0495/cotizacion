@@ -1,0 +1,30 @@
+.modal__child__layer {
+  width: 100%;
+  position: absolute;
+  opacity: 0.5;
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 301;
+  display: none;
+}
+
+.modal__child__contain {
+  width: 280px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 16px;
+  z-index: 302;
+  box-shadow: 24px;
+  transform: translate(-50%, -50%);
+  padding-bottom: 24px;
+  background-color: #fff;
+  display: none;
+}
+
+.modal__child--view {
+  display: block;
+}

@@ -3,7 +3,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import Face6Icon from "@mui/icons-material/Face6";
 import WorkIcon from "@mui/icons-material/Work";
 import TableChartIcon from "@mui/icons-material/TableChart";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -15,13 +15,23 @@ const NavBar = () => {
   const [widthContainer, setWidthContainer] = useState(0);
   const [widthNav, setWidthNav] = useState(0);
 
+  const positionNavbar = () => {
+    setWidthContainer(secContainRef.current!.clientWidth);
+    setWidthNav(navContainRef.current!.clientWidth);
+  };
+
   useEffect(() => {
     setPath(pathname);
   }, [pathname]);
 
   useEffect(() => {
-    setWidthContainer(secContainRef.current!.clientWidth);
-    setWidthNav(navContainRef.current!.clientWidth);
+    positionNavbar();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      positionNavbar();
+    });
   }, []);
 
   return (
