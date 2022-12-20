@@ -23,7 +23,7 @@ export interface TableMaterial {
   unitPrice: number;
 }
 
-export interface ContextData {
+export interface ContextDataTable {
   tableFormData: TableFormData;
   handleInputChanges: (e: React.ChangeEvent<HTMLInputElement>) => void;
   listService: TableService[];

@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { ContextData, HomeFormData } from "../interface/home";
+import { ContextDataHome, HomeFormData } from "../interface";
 import { MessageUtil } from "../util/swal";
 
 const initialValue = {
@@ -28,7 +28,7 @@ const initialValue = {
   setIsSaveStorageHomeFormData: () => {},
 };
 
-const HomeContext = createContext<ContextData>(initialValue);
+const HomeContext = createContext<ContextDataHome>(initialValue);
 
 const HomeProvider: FC<PropsWithChildren> = ({ children }) => {
   const [homeFormData, setHomeFormData] = useState<HomeFormData>({

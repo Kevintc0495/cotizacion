@@ -12,7 +12,7 @@ export interface HomeFormData {
   note: string;
 }
 
-export interface ContextData {
+export interface ContextDataHome {
   homeFormData: HomeFormData;
   handleInputChanges: (e: React.ChangeEvent<HTMLInputElement>) => void;
   saveHomeFormData: () => void;

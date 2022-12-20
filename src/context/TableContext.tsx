@@ -1,11 +1,11 @@
 import React, { createContext, FC, useState, useEffect } from "react";
 import {
-  ContextData,
+  ContextDataTable,
   RowTables,
   TableFormData,
   TableMaterial,
   TableService,
-} from "../interface/table";
+} from "../interface";
 import { MessageUtil } from "../util/swal";
 
 const initialValue = {
@@ -35,7 +35,7 @@ const initialValue = {
   deleteRowListMaterial: (index: number) => {},
 };
 
-const TableContext = createContext<ContextData>(initialValue);
+const TableContext = createContext<ContextDataTable>(initialValue);
 
 export const TableProvider: FC<React.PropsWithChildren> = ({ children }) => {
   const [tableFormData, setTableFormData] = useState<TableFormData>({

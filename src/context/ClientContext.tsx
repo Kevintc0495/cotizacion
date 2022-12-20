@@ -1,5 +1,5 @@
 import React, { createContext, FC, useState, useEffect } from "react";
-import { ClientFormData, ContextData } from "../interface/client";
+import { ClientFormData, ContextDataClient } from "../interface";
 import { MessageUtil } from "../util/swal";
 
 const initialValue = {
@@ -17,7 +17,7 @@ const initialValue = {
   setIsSaveStorageClientFormData: () => {},
 };
 
-const ClientContext = createContext<ContextData>(initialValue);
+const ClientContext = createContext<ContextDataClient>(initialValue);
 
 const ClientProvider: FC<React.PropsWithChildren> = ({ children }) => {
   const [clientFormData, setClientFormData] = useState<ClientFormData>({

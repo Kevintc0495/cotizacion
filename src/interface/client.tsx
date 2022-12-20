@@ -7,7 +7,7 @@ export interface ClientFormData {
   ruc: string;
 }
 
-export interface ContextData {
+export interface ContextDataClient {
   clientFormData: ClientFormData;
   handleInputChanges: (e: React.ChangeEvent<HTMLInputElement>) => void;
   saveClientFormData: () => void;

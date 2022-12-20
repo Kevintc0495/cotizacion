@@ -20,7 +20,7 @@ import ActionModal from "../../components/ActionModal";
 import Modal from "../../components/Modal/Modal";
 import InputForm from "../../components/Form/InputForm";
 import TableContext from "../../context/TableContext";
-import { RowTables } from "../../interface/table";
+import { RowTables } from "../../interface";
 import SaveIcon from "@mui/icons-material/Save";
 
 const TablePage = () => {
