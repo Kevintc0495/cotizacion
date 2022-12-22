@@ -4,11 +4,11 @@ import TablePage from "../../../pages/Table/TablePage";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as swal from "../../../util/swal";
 
-describe("Prueba en <TablePage/>", () => {
+describe("Test component <TablePage/>", () => {
   const value = "4";
   const messageUtil = jest.spyOn(swal, "MessageUtil");
 
-  test("Change input value", () => {
+  test("Input value change", () => {
     render(
       <TableProvider>
         <Router>

@@ -5,7 +5,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ButtonsClass, TypeButton } from "../../interface/navBar";
+import { ButtonsClass, TypeButton } from "../../interface";
 
 const NavBar = () => {
   const { pathname } = useLocation();

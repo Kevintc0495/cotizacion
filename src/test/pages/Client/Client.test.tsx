@@ -4,11 +4,11 @@ import ClientProvider from "../../../context/ClientContext";
 import Client from "../../../pages/Client/Client";
 import * as swal from "../../../util/swal";
 
-describe("Prueba <Client/>", () => {
+describe("Test component <Client/>", () => {
   const messageUtil = jest.spyOn(swal, "MessageUtil");
   const value: string = "banki";
 
-  test("cambio del valor del input", () => {
+  test("Input value change", () => {
     render(
       <ClientProvider>
         <Router>
@@ -23,7 +23,7 @@ describe("Prueba <Client/>", () => {
     expect(input.value).toContain(value);
   });
 
-  test("Ejecucion de la funcion MessageUtil", () => {
+  test("MessageUtil function execute", () => {
     render(
       <ClientProvider>
         <Router>

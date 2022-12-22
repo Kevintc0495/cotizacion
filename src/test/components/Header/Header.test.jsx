@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Header from "../../../components/Header/Header";
 
-describe("Prueba en <Header/>", () => {
+describe("Test component <Header/>", () => {
   test("My data path name", () => {
     const route = "/";
     render(

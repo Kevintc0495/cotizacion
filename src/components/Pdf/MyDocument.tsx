@@ -16,7 +16,7 @@ import {
   ServiceDetailProps,
   TableMaterialProps,
   TableServiceProps,
-} from "../../interface/pdf";
+} from "../../interface";
 
 const styles = StyleSheet.create({
   page: {

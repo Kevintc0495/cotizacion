@@ -4,11 +4,11 @@ import HomeProvider from "../../../context/HomeContext";
 import Home from "../../../pages/Home/Home";
 import * as swal from "../../../util/swal";
 
-describe("Prueba <Home/>", () => {
+describe("Test component <Home/>", () => {
   const value = "Servicio G&H";
   const messageUtil = jest.spyOn(swal, "MessageUtil");
 
-  test("cambio del valor del input", () => {
+  test("Input value change", () => {
     render(
       <HomeProvider>
         <Router>
@@ -24,7 +24,7 @@ describe("Prueba <Home/>", () => {
     expect(input.value).toBe(value);
   });
 
-  test("Ejecucion de la funcion MessageUtil", () => {
+  test("MessageUtil function execute", () => {
     render(
       <HomeProvider>
         <Router>
